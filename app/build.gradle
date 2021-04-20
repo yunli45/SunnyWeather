@@ -42,4 +42,23 @@ dependencies {
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    // RecyclerView是Android 5.0推出的，是support-v7包中的新组件,它被用来代替ListView和GridView，
+    // 并且能够实现瀑布流的布局，更加高级并且更加灵活，提供更为高效的回收复用机制，同时实现管理与视图的解耦合。
+    // 在第四章 4.6 更强大的滚动控件：RecyclerView
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
+    // 生命周期组件 （包含在 ViewModel）
+    // 13.2.1 ViewModel的基本用法
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+    // jetpack 提供的一种响应式编程组件，可以包含任何类型的数据，并且在数据发生变化的时候通知给观察者。特别合适与 ViewModel 结合一起使用
+    // 13.4 LiveData
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
+    // material 12.3 滑动菜单
+    implementation 'com.google.android.material:material:1.1.0'
+    // swiperefreshlayout 12.6 下拉刷新
+    implementation?"androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.0"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1"
 }
