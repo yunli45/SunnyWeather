@@ -6,8 +6,10 @@
     
     示意图： ui控制层 -> ViewModel 层 -> 仓库层
         仓库层：本地数据源（model） 和 网络数据源（model)
-    ui 控制层包含了：Activity 、Fragment 、布局文件等界面相关的东西
-    viewModel: 用于持有和 UI 元素相关的数据，以保证这些数据在屏幕旋转的时候数据不会丢失；并且还要 提供接口 给 UI控制层 调用和仓库层进行通信
+    ui 控制层包含了：Activity 、Fragment 、布局文件等界面相关的东西 
+    viewModel: 用于持有和 UI 元素相关的数据，以保证这些数据在屏幕旋转的时候数据不会丢失；并且还要 提供接口 给 UI控制层 
+    调用和仓库层进行通信 由于ViewModel通常和Activity或 Fragment是一一对应的，因此我们还是习惯将它们放在一起
+    
     仓库层：主要工作是判断调用方请求的数据是从本地数据源中获取还是从网络数据源获取，并且将获取到的数据返回给调用方。 本地数据源可以使用数据库、 sharedPreferences 
     等持久化技术来实现，而网络数据源则通常使用 retrofit 访问服务器提供的 webservice 接口来实现
 
@@ -65,3 +67,16 @@
     添加依赖的错误：
         错误：implementation?"androidx.swiperefreshlayout:swiperefreshlayout:1.0.0" 这句会报错 ':' expected, got '}'
         正确：implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+ 
+## 6、部分记录
+    token: Kd0V6U58a7aXLTZB
+    PlaceResponse.kt文件中定义的类与属性，完全就是按照15.1节中搜索城市数据接
+    口返回的JSON格式来定义的。不过，由于JSON中一些字段的命名可能与Kotlin的命名规范不太
+    一致，因此这里使用了@SerializedName注解的方式，来让JSON字段和Kotlin字段之间建立
+    映射关系
+    仓库层有点像是一个数据获取与缓存的中间层，在
+    本地没有缓存数据的情况下就去网络层获取，如果本地已经有缓存了，就直接将缓存数据返
+    回。
+    由于搜索城市数据的功能我们在后面还会复用，因
+    此就不建议写在Activity里面了，而是应该写在Fragment里面，这样当需要复用的时候直接在
+    布局里面引入该Fragment即可
