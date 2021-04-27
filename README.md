@@ -80,3 +80,12 @@
     由于搜索城市数据的功能我们在后面还会复用，因
     此就不建议写在Activity里面了，而是应该写在Fragment里面，这样当需要复用的时候直接在
     布局里面引入该Fragment即可
+    @SuppressLint("StaticFieldLeak"):
+        SuppressLint : 忽略特定的编译器警告
+    
+    流程：搜索全部城市数据 -> 带上经纬度 -> 具体的城市的天气情况 
+        采用 mvvm 的架构，然后界面使用 fragment 来进行复用， 使用 refit2 来进行网络请求 加上携程
+            1、application -》 获取全局的context 、 设置参数 token
+            2、新增 config 包主要放置一些配置文件的
+            3、https://www.toutiao.com/i6954745113687917069/?tt_from=mobile_qq&utm_campaign=client_share&timestamp=1619481195&app=news_article&utm_source=mobile_qq&utm_medium=toutiao_ios&use_new_style=1&req_id=20210427075315010151152031001F3095&share_token=ABCDC0A9-2FEE-449E-854B-9A37F2E2F60E&group_id=6954745113687917069&wid=1619481398670
+                架构篇-一分钟掌握可伸缩架构 - 待看
