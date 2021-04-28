@@ -67,9 +67,10 @@
     添加依赖的错误：
         错误：implementation?"androidx.swiperefreshlayout:swiperefreshlayout:1.0.0" 这句会报错 ':' expected, got '}'
         正确：implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
- 
+    缺少一个
+        apply plugin: 'kotlin-android-extensions' 在编写的时候可以直接使用layout id 名称获取当前view对象添加到build.grade 
 ## 6、部分记录
-    token: Kd0V6U58a7aXLTZB
+    1、token: Kd0V6U58a7aXLTZB
     PlaceResponse.kt文件中定义的类与属性，完全就是按照15.1节中搜索城市数据接
     口返回的JSON格式来定义的。不过，由于JSON中一些字段的命名可能与Kotlin的命名规范不太
     一致，因此这里使用了@SerializedName注解的方式，来让JSON字段和Kotlin字段之间建立
@@ -82,7 +83,7 @@
     布局里面引入该Fragment即可
     @SuppressLint("StaticFieldLeak"):
         SuppressLint : 忽略特定的编译器警告
-    
+    x`
     流程：搜索全部城市数据 -> 带上经纬度 -> 具体的城市的天气情况 
         采用 mvvm 的架构，然后界面使用 fragment 来进行复用， 使用 refit2 来进行网络请求 加上携程
             1、
