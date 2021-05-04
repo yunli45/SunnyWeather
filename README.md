@@ -54,7 +54,7 @@
        // 13.4 LiveData
        implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.2.0"
        // material 12.3 滑动菜单
-       implementation 'com.google.android.material:material:1.1.0'
+       implementation 'com.google.android.material:material:1.1.0' 
        // swiperefreshlayout 12.6 下拉刷新
        implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
        implementation 'com.squareup.retrofit2:retrofit:2.6.1' // retrofit2
