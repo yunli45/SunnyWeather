@@ -1,5 +1,6 @@
 package com.ws.sunnyweather.logic.model
 
+// 数据模型
 // 一个花括号就是一个类
 /**
  * desc: 一个城市实时的天气数据, 如果不用花括号括起来，相当于顶层文件，能被其他的文件访问到（Result）

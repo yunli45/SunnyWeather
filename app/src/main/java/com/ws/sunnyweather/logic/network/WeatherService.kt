@@ -8,8 +8,9 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 
 /**
- * getRealtimeWeather()方法用于获取实时的天气信息，
- * getDailyWeather()方法用于获取未来的天气信息
+ * 定义一个用于访问天气信息API的Retrofit接口
+ *  getRealtimeWeather()方法用于获取实时的天气信息，
+ *  getDailyWeather()方法用于获取未来的天气信息
  */
 interface WeatherService {
     @GET("/v2.5/${SunnyWeatherApplication.TOKEN}/{lng},{lat}/realtime.json")
