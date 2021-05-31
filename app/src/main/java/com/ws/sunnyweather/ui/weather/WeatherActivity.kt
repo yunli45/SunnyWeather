@@ -31,6 +31,9 @@ class WeatherActivity : AppCompatActivity() {
         if (viewModel.locationLat.isEmpty()) {
             viewModel.locationLat = intent.getStringExtra("location_lat") ?: ""
         }
+        if (viewModel.placeName.isEmpty()) {
+            viewModel.placeName = intent.getStringExtra("place_name") ?: ""
+        }
         viewModel.weatherLiveData.observe(this, Observer { result ->
             val weather = result.getOrNull()
             if (weather != null) {

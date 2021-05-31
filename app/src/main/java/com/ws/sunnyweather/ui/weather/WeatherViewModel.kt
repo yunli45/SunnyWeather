@@ -16,8 +16,6 @@ locationLiveData对象，然后使用Transformations的switchMap()方法来观�
  */
 class WeatherViewModel : ViewModel() {
     private val locationLiveData = MutableLiveData<Location>()
-    private val list1 = ArrayList<Location>();
-
     /**
      * 我们还在WeatherViewModel中定义了 locationLng、locationLat和placeName
     这3个变量，它们都是和界面相关的数据，放到ViewModel中可以保证它们在手机屏幕发生旋

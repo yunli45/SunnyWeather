@@ -2,6 +2,7 @@ package com.ws.sunnyweather.logic
 
 import android.content.Context
 import androidx.lifecycle.liveData
+import com.ws.sunnyweather.logic.dao.PlaceDao
 import com.ws.sunnyweather.logic.model.Place
 import com.ws.sunnyweather.logic.model.Weather
 import com.ws.sunnyweather.logic.network.SunnyWeatherNetwork
@@ -127,4 +128,15 @@ object Repository {
             }
             emit(result)
         }
+
+    /**
+     * 仓库层只是做了一层接口封装而已。其实这里的实现方式并不标准，因为即使是对
+    SharedPreferences文件进行读写的操作，也是不太建议在主线程中进行，虽然它的执行速度
+    通常会很快。最佳的实现方式肯定还是开启一个线程来执行这些比较耗时的任务，然后通过
+    LiveData对象进行数据返回，不过这里为了让代码看起来更加简单一些，我就不使用那么标准
+    的写法了
+     */
+    fun savePlace(place: Place) = PlaceDao.savePlace(place)
+    fun getSavedPlace() = PlaceDao.getSavedPlace()
+    fun isPlaceSaved() = PlaceDao.isPlaceSaved()
 }

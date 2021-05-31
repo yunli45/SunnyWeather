@@ -13,7 +13,11 @@ import com.ws.sunnyweather.logic.model.Place
 import com.ws.sunnyweather.ui.weather.WeatherActivity
 
 
-class PlaceAdapter(private val fragment: Fragment, private val placeList: List<Place>) :
+/**
+ * 先把PlaceAdapter主构造函数中传入的Fragment对象改成
+PlaceFragment对象，这样我们就可以调用PlaceFragment所对应的PlaceViewModel了
+ */
+class PlaceAdapter(private val fragment: PlaceFragment, private val placeList: List<Place>) :
     RecyclerView.Adapter<PlaceAdapter.ViewHolder>() {
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -33,7 +37,7 @@ class PlaceAdapter(private val fragment: Fragment, private val placeList: List<P
                 putExtra("location_lat", place.location.lat)
                 putExtra("place_name", place.name)
             }
-
+            fragment.viewModel.savePlace(place)
             fragment.startActivity(intent)
             fragment.activity?.finish()
         }

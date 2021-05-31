@@ -17,5 +17,13 @@ class PlaceViewModel :ViewModel(){
     fun searchPlaces(query: String) {
         searchLiveData.value = query
     }
+
+    /**
+     * 这几个接口的业务逻辑是和PlaceViewModel相关的，因此我们还得在PlaceViewModel中再
+    进行一层封装才行
+     */
+    fun savePlace(place: Place) = Repository.savePlace(place)
+    fun getSavedPlace() = Repository.getSavedPlace()
+    fun isPlaceSaved() = Repository.isPlaceSaved()
 }
 
