@@ -26,10 +26,10 @@ class WeatherActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_weather)
         if (viewModel.locationLng.isEmpty()) {
-            viewModel.locationLng = intent.getStringExtra("location_lng")
+            viewModel.locationLng = intent.getStringExtra("location_lng") ?: ""
         }
         if (viewModel.locationLat.isEmpty()) {
-            viewModel.locationLat = intent.getStringExtra("location_lat")
+            viewModel.locationLat = intent.getStringExtra("location_lat") ?: ""
         }
         viewModel.weatherLiveData.observe(this, Observer { result ->
             val weather = result.getOrNull()
@@ -41,6 +41,7 @@ class WeatherActivity : AppCompatActivity() {
                 result.exceptionOrNull()?.printStackTrace()
             }
         })
+        viewModel.refreshWeather(viewModel.locationLng, viewModel.locationLat)
     }
 
     private fun showWeatherInfo(weather: Weather) {
